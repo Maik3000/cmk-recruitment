@@ -28,7 +28,7 @@ const Navbar = () => {
               <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
                 <div>
                   <FaHome />
-                  Hola
+                  CR7 EL BICHO
                 </div>
               </MenuItemLink>
             </MenuItem>
