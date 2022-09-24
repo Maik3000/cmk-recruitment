@@ -28,8 +28,9 @@ const Navbar = () => {
               <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
                 <div>
                   <FaHome />
-
+                  <a href="home.html">
                   HOME
+                  </a>                  
 
                 </div>
               </MenuItemLink>
@@ -41,7 +42,7 @@ const Navbar = () => {
               <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
                 <div>
                   <FaSearch />
-                  SEARCH
+                  SEARCHhhh
                 </div>
               </MenuItemLink>
             </MenuItem>
