@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Container, LogoContainer, Wrapper, Menu, MenuItem, MenuItemLink, MobileIcon, NavLinks, NavBtnLink, NavBtn, NavItem, NavMenu} from "./Navbar.elements";
-import { FaBars, FaTimes, FaSearch, FaUserAlt, FaPhone, } from "react-icons/fa";
+import { Container, LogoContainer, Wrapper, Menu, MenuItemLink, MobileIcon, NavLinks, NavItem, NavMenu} from "./Navbar.elements";
+import { FaBars, FaTimes} from "react-icons/fa";
 
 import {GiSoccerKick } from "react-icons/gi";
 import { IconContext } from "react-icons";
@@ -45,7 +45,8 @@ const Navbar = () => {
                 <NavMenu>
                     
                     <NavItem>
-                        <NavLinks to='search'>SEARCH</NavLinks> 
+                        
+                      <NavLinks to='search'>SEARCH</NavLinks>
                     </NavItem>
                     
                         {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
