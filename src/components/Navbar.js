@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Container, LogoContainer, Wrapper, Menu, MenuItem, MenuItemLink, MobileIcon,} from "./Navbar.elements";
-import { FaBars, FaTimes, FaHome, FaSearch, FaUserAlt, FaPhone, } from "react-icons/fa";
+import { Container, LogoContainer, Wrapper, Menu, MenuItem, MenuItemLink, MobileIcon, NavLinks, NavBtnLink, NavBtn, NavItem, NavMenu} from "./Navbar.elements";
+import { FaBars, FaTimes, FaSearch, FaUserAlt, FaPhone, } from "react-icons/fa";
 
 import {GiSoccerKick } from "react-icons/gi";
 import { IconContext } from "react-icons";
+
+
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -24,51 +26,66 @@ const Navbar = () => {
 
           <Menu open={showMobileMenu}>
             
-            <MenuItem>
+            
               <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <div>
-                  <FaHome />
-                  <a href="home.html">
-                  HOME
-                  </a>                  
-
-                </div>
+              
+                <NavMenu>
+                    <NavItem>
+                        <NavLinks to="home">HOME</NavLinks>
+                    </NavItem>
+                    
+                        {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
+                </NavMenu>
+                
+                
               </MenuItemLink>
-            </MenuItem>
 
-      
-
-            <MenuItem>
               <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <div>
-                  <FaSearch />
-                  SEARCH
-                </div>
+              
+                <NavMenu>
+                    
+                    <NavItem>
+                        <NavLinks to='search'>SEARCH</NavLinks> 
+                    </NavItem>
+                    
+                        {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
+                </NavMenu>
+                
+              
+                 
               </MenuItemLink>
-            </MenuItem>
 
-       
-
-            <MenuItem>
               <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <div>
-                  <FaUserAlt />
-                  ABOUT US
-                </div>
+              
+                <NavMenu>
+                    
+                    <NavItem>
+                        <NavLinks to='contactus'>CONTACT US</NavLinks> 
+                    </NavItem>
+                    
+                        {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
+                </NavMenu>
+                
+              
+                 
               </MenuItemLink>
-            </MenuItem>
 
-
-            <MenuItem>
               <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <div>
-                  <FaPhone />
-                  CONTACT US
-                </div>
+              
+                <NavMenu>
+                    
+                    <NavItem>
+                        <NavLinks to='aboutus'>ABOUT US</NavLinks> 
+                    </NavItem>
+                    
+                        {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
+                </NavMenu>
+                
+              
+                 
               </MenuItemLink>
-            </MenuItem>
 
-         
+              
 
           </Menu>
         </IconContext.Provider>
