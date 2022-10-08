@@ -1,98 +1,94 @@
-import React, { useState } from "react";
-import { Container, LogoContainer, Wrapper, Menu, MenuItemLink, MobileIcon, NavLinks, NavItem, NavMenu} from "./Navbar.elements";
-import { FaBars, FaTimes} from "react-icons/fa";
+import React from "react";
+import { Container, LogoContainer, Wrapper, Menu, MenuItem, MenuItemLink, MobileIcon, NavLinks, NavBtnLink, NavItem, NavMenu} from "./Navbar.elements";
+
 
 import {GiSoccerKick } from "react-icons/gi";
 import { IconContext } from "react-icons";
 
+import Home from './components/home'
+import About from './components/about'
+import Search from './components/search'
+import Contact from './components/contact'
+
+import { Component } from 'react';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom'
 
 
-const Navbar = () => {
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  return (
-    <Container>
-      <Wrapper>
-        <IconContext.Provider value={{ style: { fontSize: "2rem" } }}>
-          <LogoContainer>
-            <GiSoccerKick />
-            <p>CMK  </p>
-            <p><b>Recruitment</b> </p>
-          </LogoContainer>
+class Navbar extends Component {
+  render() {
+    return (
+      <Router>
+      <div className="Navbar">
+      <Container>
+        <Wrapper>
+          <IconContext.Provider value={{ style: { fontSize: "2rem" } }}>
+            <LogoContainer>
+              <GiSoccerKick />
+              <p>CMK  </p>
+              <p><b>Recruitment</b> </p>
+            </LogoContainer>
 
-          <MobileIcon onClick={() => setShowMobileMenu(!showMobileMenu)}>
-            {showMobileMenu ? <FaTimes /> : <FaBars />}
-          </MobileIcon>
+                  <NavMenu>
+                      <NavItem>
+                        <Link to="/home">Home</Link>
+                      </NavItem>
+                      
+                          {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
+                  </NavMenu>
+                  
 
-          <Menu open={showMobileMenu}>
+                  <NavMenu>
+                      
+                      <NavItem>  
+                        <Link to="/search">Search</Link>
+                      </NavItem>
+                      
+                          {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
+                  </NavMenu>
+                  
+
+                  <NavMenu>
+                      
+                      <NavItem>
+                        <Link to="/contact">Contact Us</Link> 
+                      </NavItem>
+                      
+                          {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
+                  </NavMenu>
+
+                  <NavMenu>
+                      
+                      <NavItem>
+                        <Link to="/about">About Us</Link> 
+                      </NavItem>
+                      
+                          {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
+                  </NavMenu>
+                  
+
+            <Routes>
+              <Route exact path='/home' element={< Home />}></Route>
+              <Route exact path='/search' element={< Search />}></Route>
+              <Route exact path='/about' element={< About />}></Route>
+              <Route exact path='/contact' element={< Contact />}></Route>
+            </Routes>  
+
             
-            
-              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-              
-                <NavMenu>
-                    <NavItem>
-                        <NavLinks to="home">HOME</NavLinks>
-                    </NavItem>
-                    
-                        {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
-                </NavMenu>
-                
-                
-              </MenuItemLink>
-
-              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-              
-                <NavMenu>
-                    
-                    <NavItem>
-                        
-                      <NavLinks to='search'>SEARCH</NavLinks>
-                    </NavItem>
-                    
-                        {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
-                </NavMenu>
-                
-              
-                 
-              </MenuItemLink>
-
-              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-              
-                <NavMenu>
-                    
-                    <NavItem>
-                        <NavLinks to='contactus'>CONTACT US</NavLinks> 
-                    </NavItem>
-                    
-                        {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
-                </NavMenu>
-                
-              
-                 
-              </MenuItemLink>
-
-              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-              
-                <NavMenu>
-                    
-                    <NavItem>
-                        <NavLinks to='aboutus'>ABOUT US</NavLinks> 
-                    </NavItem>
-                    
-                        {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
-                </NavMenu>
-                
-              
-                 
-              </MenuItemLink>
-
-              
-
-          </Menu>
-        </IconContext.Provider>
-      </Wrapper>
-    </Container>
+          </IconContext.Provider>
+        </Wrapper>
+      </Container>
+      </div>
+      </Router>
+    
   );
+  };
 };
 
 export default Navbar;
