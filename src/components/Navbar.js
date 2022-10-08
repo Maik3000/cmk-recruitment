@@ -5,10 +5,10 @@ import { Container, LogoContainer, Wrapper, Menu, MenuItem, MenuItemLink, Mobile
 import {GiSoccerKick } from "react-icons/gi";
 import { IconContext } from "react-icons";
 
-import Home from './components/home'
-import About from './components/about'
-import Search from './components/search'
-import Contact from './components/contact'
+import Home from '../pages/home';
+import About from '../pages/about';
+import Search from '../pages/search';
+import Contact from '../pages/contact';
 
 import { Component } from 'react';
 
@@ -37,7 +37,7 @@ class Navbar extends Component {
 
                   <NavMenu>
                       <NavItem>
-                        <Link to="/home">Home</Link>
+                        <Link to="/">Home</Link>
                       </NavItem>
                       
                           {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
