@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, LogoContainer, Wrapper, Menu, MenuItem, MenuItemLink, MobileIcon, NavLinks, NavBtnLink, NavItem, NavMenu} from "./Navbar.elements";
 
 
@@ -17,12 +17,25 @@ import {
   Routes,
   Route,
   Link
-} from 'react-router-dom'
+} from 'react-router-dom';
+
+import {
+  FaBars,
+  FaTimes,
+  FaHome,
+  FaUserAlt,
+  FaBriefcase,
+  FaGlasses,
+} from "react-icons/fa";
 
 
 
-class Navbar extends Component {
-  render() {
+
+
+const Navbar = () => {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  
     return (
       <Router>
       <div className="Navbar">
@@ -35,42 +48,44 @@ class Navbar extends Component {
               <p><b>Recruitment</b> </p>
             </LogoContainer>
 
-                  <NavMenu>
-                      <NavItem>
-                        <Link to="/">Home</Link>
-                      </NavItem>
-                      
-                          {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
-                  </NavMenu>
-                  
+            <MobileIcon onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            {showMobileMenu ? <FaTimes /> : <FaBars />}
+          </MobileIcon>
 
-                  <NavMenu>
-                      
-                      <NavItem>  
-                        <Link to="/search">Search</Link>
-                      </NavItem>
-                      
-                          {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
-                  </NavMenu>
-                  
-
-                  <NavMenu>
-                      
-                      <NavItem>
-                        <Link to="/contact">Contact Us</Link> 
-                      </NavItem>
-                      
-                          {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
-                  </NavMenu>
-
-                  <NavMenu>
-                      
-                      <NavItem>
-                        <Link to="/about">About Us</Link> 
-                      </NavItem>
-                      
-                          {/* <NavBtnLink to='/pages/login'>Log In</NavBtnLink> */}
-                  </NavMenu>
+          <Menu open={showMobileMenu}>
+            <MenuItem>
+              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                <div>
+                  <FaHome />
+                  <Link to="/home">Home</Link>
+                </div>
+              </MenuItemLink>
+            </MenuItem>
+            <MenuItem>
+              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                <div>
+                  <FaUserAlt />
+                  <Link to="/about">About Us</Link>
+                </div>
+              </MenuItemLink>
+            </MenuItem>
+            <MenuItem>
+              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                <div>
+                  <FaBriefcase />
+                  <Link to="/search">Search</Link>
+                </div>
+              </MenuItemLink>
+            </MenuItem>
+            <MenuItem>
+              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                <div>
+                  <FaGlasses />
+                  <Link to="/contact">Contact Us</Link>
+                </div>
+              </MenuItemLink>
+            </MenuItem>
+          </Menu>
                   
 
             <Routes>
@@ -89,6 +104,6 @@ class Navbar extends Component {
     
   );
   };
-};
+
 
 export default Navbar;
